@@ -1,0 +1,11 @@
+version: "3.6"
+services:
+  tileserver:
+    image: consbio/mbtileserver:0.9.0
+    container_name: TILESERVER
+    entrypoint: /mbtileserver --enable-arcgis --root-url /tileservice/services
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - /nsi-data/tilesets/2022:/tilesets
